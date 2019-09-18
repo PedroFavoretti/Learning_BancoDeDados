@@ -8,17 +8,24 @@
 -- Comandos
 CREATE DATABASE bancodeteste; // Criar base de dados
 USE bancodeteste;   // Usar base de dados
-CREATE TABLE users(    // Exemplo de como criar tabelas
-id int(4) AUTO_INCREMENT,
-name varchar(255) NOT NULL,
-email varchar(255) NOT NULL UNIQUE,
-telephone varchar(255),
-userName varchar(255) NOT NULL UNIQUE,
-password varchar(255) NOT NULL,
-PRIMARY KEY (id)
-);
-INSERT INTO fornecedores(codigo, nome, email) VALUES (null, “Ricardo”, “ricoarrigoni@gmail.com”)    // Inserir valores em tabelas
 
+  * Criando tabelas
+  CREATE TABLE users( 
+  id int(4) AUTO_INCREMENT,
+  name varchar(255) NOT NULL,
+  email varchar(255) NOT NULL UNIQUE,
+  telephone varchar(255),
+  userName varchar(255) NOT NULL UNIQUE,
+  password varchar(255) NOT NULL,
+  PRIMARY KEY (id)
+  );
+
+  * Inserindo valores na tabelas
+  INSERT INTO fornecedores(codigo, nome, email) VALUES (null, “Ricardo”, “ricoarrigoni@gmail.com”)  
+
+  * Relacionamento de tabelas
+  ALTER TABLE TABELA_SERVICO ADD CONSTRAINT 'NOME DA USA CONSTRAINT' FOREIGN KEY(NOME ATRIBUTO AO QUAL QUER REFERENCIAR)
+  REFERENCES NOMEDATABELA(ATRIBUTOQUEDESEJA);   
 
 -- Parametros para atributos
 AUTO-INCREMENT
