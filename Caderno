@@ -5,9 +5,10 @@
 -- Definições / Conceitos
    Relacionamento: Entidade relacionada a outra entidade
 
--- Comandos
+-- Comandos 
 CREATE DATABASE bancodeteste; // Criar base de dados
 USE bancodeteste;   // Usar base de dados
+RENAME TABLE users TO user    // Renomear tabela
 
   * Criando tabelas
   CREATE TABLE users( 
@@ -19,11 +20,18 @@ USE bancodeteste;   // Usar base de dados
   password varchar(255) NOT NULL,
   PRIMARY KEY (id)
   );
+  
+  * Alterando dados tabela
+  ALTER TABLE `projetoDoceria`.`itemPedido` 
+  CHANGE COLUMN `quantidade` `amount` INT(11) NOT NULL ,
+  CHANGE COLUMN `valor` `value` DOUBLE NOT NULL ,
+  CHANGE COLUMN `produto_id` `product_id` INT(11) NOT NULL ,
+  CHANGE COLUMN `pedido_id` `request_id` INT(11) NOT NULL ;
 
   * Inserindo valores na tabelas
   INSERT INTO fornecedores(codigo, nome, email) VALUES (null, “Ricardo”, “ricoarrigoni@gmail.com”)  
 
-  * Relacionamento de tabelas
+  * Relacionamento de tabelas https://www.devmedia.com.br/forum/relacionamento-de-tabelas-no-mysql-chave-estrangeira/558559
   ALTER TABLE TABELA_SERVICO ADD CONSTRAINT 'NOME DA USA CONSTRAINT' FOREIGN KEY(NOME ATRIBUTO AO QUAL QUER REFERENCIAR)
   REFERENCES NOMEDATABELA(ATRIBUTOQUEDESEJA);   
 
@@ -45,6 +53,7 @@ UNIQUE
   
 -- Sites 
 Desinstalar mysql > https://linuxscriptshub.com/uninstall-completely-remove-mysql-ubuntu-16-04/ 
-
+Primeiros passos mysql > https://www.devmedia.com.br/primeiros-passos-no-mysql/28438
+Relacionamento de tabelas > https://www.devmedia.com.br/forum/relacionamento-de-tabelas-no-mysql-chave-estrangeira/558559
 
 
