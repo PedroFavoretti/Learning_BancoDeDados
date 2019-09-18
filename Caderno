@@ -1,0 +1,24 @@
+-------------------------------------------------------------------------------------------------------------------------------------------
+                                                    BANCO DE DADOS / MYSQL
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+-- Definições / Conceitos
+   Relacionamento: Entidade relacionada a outra entidade
+
+
+-- Instalação
+  MySql > sudo apt install mysql-server mysql-client && sudo mysql_secure_installation
+  WorkBench > sudo apt install mysql-workbench
+  
+-- Comandos terminal / Configuração / Manutenção
+  mysql -h localhost -u root -p   // Entrar no mysql setando o -h referenciando o servidor (localhost), -u referenciando ao usuário
+  e -p referente a senha.
+  CREATE USER 'novousuario'@'localhost' IDENTIFIED BY 'password';   //Criar um Novo Usuário
+  GRANT ALL PRIVILEGES ON * . * TO 'novousuario'@'localhost';   // Atribuir privilégios a determinado usuário
+  FLUSH PRIVILEGES;   // Resetar privilégios
+  
+-- Sites 
+Desinstalar mysql > https://linuxscriptshub.com/uninstall-completely-remove-mysql-ubuntu-16-04/ 
+
+
+
