@@ -33,7 +33,10 @@ RENAME TABLE users TO user    // Renomear tabela
 
   * Relacionamento de tabelas https://www.devmedia.com.br/forum/relacionamento-de-tabelas-no-mysql-chave-estrangeira/558559
   ALTER TABLE TABELA_SERVICO ADD CONSTRAINT 'NOME DA USA CONSTRAINT' FOREIGN KEY(NOME ATRIBUTO AO QUAL QUER REFERENCIAR)
-  REFERENCES NOMEDATABELA(ATRIBUTOQUEDESEJA);   
+  REFERENCES NOMEDATABELA(ATRIBUTOQUEDESEJA); 
+
+  * Atualizando dados de campos já populados na tabela
+   UPDATE nomedatabela SET atributo=novovalor WHERE id=iddatabela
 
 -- Parametros para atributos
 AUTO-INCREMENT
