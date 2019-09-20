@@ -9,6 +9,7 @@
 CREATE DATABASE bancodeteste; // Criar base de dados
 USE bancodeteste;   // Usar base de dados
 RENAME TABLE users TO user    // Renomear tabela
+SELECT * FROM projetoDoceria.product;   // Listar da tabela projetoDoceria os dados de produtos
 
   * Criando tabelas
   CREATE TABLE users( 
@@ -38,6 +39,22 @@ RENAME TABLE users TO user    // Renomear tabela
   * Atualizando dados de campos já populados na tabela
    UPDATE nomedatabela SET atributo=novovalor WHERE id=iddatabela
 
+  * JOIN
+  Inner Join    // retorna os registros que são comuns às duas tabelas.
+  Exemplo: SELECT a.Nome, b.Nome  
+  FROM TabelaA as A
+  INNER JOIN TabelaB as B
+                on a.Nome = b.Nome
+  
+  Left Join   // tem como resultado todos os registros que estão na tabela A (mesmo que não estejam na tabela B) e os registros da 
+  tabela B que são comuns à tabela A.
+  SELECT a.Nome, b.Nome
+  FROM TabelaA as A
+  LEFT JOIN TabelaB as B
+                on a.Nome = b.Nome
+  
+  
+  
 -- Parametros para atributos
 AUTO-INCREMENT
 NOT NULL
