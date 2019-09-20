@@ -46,15 +46,48 @@ SELECT * FROM projetoDoceria.product;   // Listar da tabela projetoDoceria os da
   INNER JOIN TabelaB as B
                 on a.Nome = b.Nome
   
-  Left Join   // tem como resultado todos os registros que estão na tabela A (mesmo que não estejam na tabela B) e os registros da 
-  tabela B que são comuns à tabela A.
+  Left Join   // tem como resultado todos os registros que estão na tabela A (mesmo que não estejam na tabela B) e os registros 
+  da tabela B que são comuns à tabela A.
   SELECT a.Nome, b.Nome
   FROM TabelaA as A
   LEFT JOIN TabelaB as B
                 on a.Nome = b.Nome
   
+  Right Join    // teremos como resultado todos os registros que estão na tabela B (mesmo que não estejam na tabela A) e os registros 
+  da tabela A que são comuns à tabela B.
+  SELECT a.Nome, b.Nome
+  FROM TabelaA as A
+  RIGHT JOIN TabelaB as B
+  on a.Nome = b.Nome
   
+  Outer Join    //  tem como resultado todos os registros que estão na tabela A e todos os registros da tabela B.
+  SELECT a.Nome, b.Nome
+  FROM TabelaA as A
+  FULL OUTER JOIN TabelaB as B
+    on a.Nome = b.Nome
+
+  Left Excluding Join   // retorna como resultado todos os registros que estão na tabela A e que não estejam na tabela B.
+  SELECT a.Nome, b.Nome
+  FROM TabelaA as A
+  LEFT JOIN TabelaB as B
+                on a.Nome = b.Nome
+  WHERE b.Nome is null
   
+  Right Excluding Join    //  retorna como resultado todos os registros que estão na tabela B e que não estejam na tabela A.
+  SELECT a.Nome, b.Nome
+  FROM TabelaA as A
+  RIGHT JOIN TabelaB as B
+    on a.Nome = b.Nome
+  WHERE a.Nome is null
+
+  Outer Excluding Join    //  teremos como resultado todos os registros que estão na tabela B, mas que não estejam na tabela A, e todos os 
+  registros que estão na tabela A, mas que não estejam na tabela B.
+  SELECT a.Nome, b.Nome
+  FROM TabelaA as A
+  FULL OUTER JOIN TabelaB as B
+      on a.Nome = b.Nome
+  WHERE a.Nome is null or b.Nome is null
+
 -- Parametros para atributos
 AUTO-INCREMENT
 NOT NULL
