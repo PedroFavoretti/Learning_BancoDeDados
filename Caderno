@@ -20,27 +20,10 @@ Para o que serve? Registrar instâncias de coisas separadas que tem caracterisit
 	DTL: Transações {Durabilidade, isolamento, consistência e atomicidade}
 
 -- Tipos primitivos
-	Numérico {
-		Inteiro,
-		Real,
-		Lógico
-	} 
-	DATA/TIME {
-		Data,
-		Hora
-	}
-	Literal {
-		Caractere,
-		Texto,
-		Binário,
-		Coleção
-	}
-	Espacial {
-		Geometry, 
-		Point, 
-		Polygon, 
-		MultiPolygon
-	}
+	Numérico { Inteiro, Real, Lógico } 
+	DATA/TIME { Data, Hora }
+	Literal { Caractere, Texto, Binário, Coleção }
+	Espacial { Geometry, Point, Polygon, MultiPolygon }
 	
 -- Comandos 
 	CREATE DATABASE bancodeteste // Criar base de dados
