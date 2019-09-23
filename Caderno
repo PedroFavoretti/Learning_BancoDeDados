@@ -22,16 +22,20 @@ SELECT * FROM projetoDoceria.product;   // Listar da tabela projetoDoceria os da
   PRIMARY KEY (id)
   );
   
-  * Alterando dados tabela
+  * Alterando colunas
   ALTER TABLE `projetoDoceria`.`itemPedido` 
   CHANGE COLUMN `quantidade` `amount` INT(11) NOT NULL ,
   CHANGE COLUMN `valor` `value` DOUBLE NOT NULL ,
   CHANGE COLUMN `produto_id` `product_id` INT(11) NOT NULL ,
   CHANGE COLUMN `pedido_id` `request_id` INT(11) NOT NULL ;
 
-  * Inserindo valores na tabelas
+  * Inserindo valores nas colunas das tabelas
   INSERT INTO fornecedores(codigo, nome, email) VALUES (null, “Ricardo”, “ricoarrigoni@gmail.com”)  
 
+  * Inserindo novas colunas nas tabelas
+  ALTER TABLE purchaseOrder ADD COLUMN customer_id INT(4) NOT NULL;
+
+  
   * Relacionamento de tabelas https://www.devmedia.com.br/forum/relacionamento-de-tabelas-no-mysql-chave-estrangeira/558559
   ALTER TABLE TABELA_SERVICO ADD CONSTRAINT 'NOME DA USA CONSTRAINT' FOREIGN KEY(NOME ATRIBUTO AO QUAL QUER REFERENCIAR)
   REFERENCES NOMEDATABELA(ATRIBUTOQUEDESEJA); 
