@@ -26,7 +26,8 @@ Para o que serve? Registrar instâncias de coisas separadas que tem caracterisit
 		Lógico
 	} 
 	DATA/TIME {
-		
+		Data,
+		Hora
 	}
 	Literal {
 		Caractere,
@@ -42,13 +43,16 @@ Para o que serve? Registrar instâncias de coisas separadas que tem caracterisit
 	}
 	
 -- Comandos 
-CREATE DATABASE bancodeteste; // Criar base de dados
-USE bancodeteste;   // Usar base de dados
+CREATE DATABASE bancodeteste // Criar base de dados
+DEFAULT CHARACTER SET utf8 		|| Ambos para configu -
+DEFAULT COLLATE utf8_general_ci;	|| ração de acentuação
+
+; USE bancodeteste;   // Usar base de dados
 DESCRIBE || DESC;		// Descrever dados desejados
 STATUS;			// Listar BD abertos
+DROP;			// Excluir tabelas
 RENAME TABLE users TO user;    // Renomear tabela
 SELECT * FROM projetoDoceria.product;   // Listar da tabela projetoDoceria os dados de produtos
-
 
   * Criando tabelas
   CREATE TABLE users( 
