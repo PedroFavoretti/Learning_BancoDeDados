@@ -43,120 +43,120 @@ Para o que serve? Registrar instâncias de coisas separadas que tem caracterisit
 	}
 	
 -- Comandos 
-CREATE DATABASE bancodeteste // Criar base de dados
-DEFAULT CHARACTER SET utf8 		|| Ambos para configu -
-DEFAULT COLLATE utf8_general_ci;	|| ração de acentuação
+	CREATE DATABASE bancodeteste // Criar base de dados
+	DEFAULT CHARACTER SET utf8 		|| Ambos para configu -
+	DEFAULT COLLATE utf8_general_ci;	|| ração de acentuação
 
-; USE bancodeteste;   // Usar base de dados
-DESCRIBE || DESC;		// Descrever dados desejados
-STATUS;			// Listar BD abertos
-DROP;			// Excluir tabelas
-RENAME TABLE users TO user;    // Renomear tabela
-SELECT * FROM projetoDoceria.product;   // Listar da tabela projetoDoceria os dados de produtos
+	USE bancodeteste;   // Usar base de dados
+	DESCRIBE || DESC;		// Descrever dados desejados
+	STATUS;			// Listar BD abertos
+	DROP;			// Excluir tabelas
+	RENAME TABLE users TO user;    // Renomear tabela
+	SELECT * FROM projetoDoceria.product;   // Listar da tabela projetoDoceria os dados de produtos
 
   * Criando tabelas
-  CREATE TABLE users( 
-  id int(4) AUTO_INCREMENT,
-  name varchar(255) NOT NULL,
-  email varchar(255) NOT NULL UNIQUE,
-  telephone varchar(255),
-  userName varchar(255) NOT NULL UNIQUE,
-  password varchar(255) NOT NULL,
-  PRIMARY KEY (id)
-  );
+	  CREATE TABLE users( 
+	  id int(4) AUTO_INCREMENT,
+	  name varchar(255) NOT NULL,
+	  email varchar(255) NOT NULL UNIQUE,
+	  telephone varchar(255),
+	  userName varchar(255) NOT NULL UNIQUE,
+	  password varchar(255) NOT NULL,
+	  PRIMARY KEY (id)
+	  );
   
   * Alterando colunas
-  ALTER TABLE `projetoDoceria`.`itemPedido` 
-  CHANGE COLUMN `quantidade` `amount` INT(11) NOT NULL ,
-  CHANGE COLUMN `valor` `value` DOUBLE NOT NULL ,
-  CHANGE COLUMN `produto_id` `product_id` INT(11) NOT NULL ,
-  CHANGE COLUMN `pedido_id` `request_id` INT(11) NOT NULL ;
+	  ALTER TABLE `projetoDoceria`.`itemPedido` 
+	  CHANGE COLUMN `quantidade` `amount` INT(11) NOT NULL ,
+	  CHANGE COLUMN `valor` `value` DOUBLE NOT NULL ,
+	  CHANGE COLUMN `produto_id` `product_id` INT(11) NOT NULL ,
+	  CHANGE COLUMN `pedido_id` `request_id` INT(11) NOT NULL ;
 
   * Inserindo valores nas colunas das tabelas
-  INSERT INTO fornecedores(codigo, nome, email) VALUES (null, “Ricardo”, “ricoarrigoni@gmail.com”)  
+ 	 INSERT INTO fornecedores(codigo, nome, email) VALUES (null, “Ricardo”, “ricoarrigoni@gmail.com”)  
 
   * Inserindo novas colunas nas tabelas
-  ALTER TABLE purchaseOrder ADD COLUMN customer_id INT(4) NOT NULL;
+  	ALTER TABLE purchaseOrder ADD COLUMN customer_id INT(4) NOT NULL;
 
   
   * Relacionamento de tabelas https://www.devmedia.com.br/forum/relacionamento-de-tabelas-no-mysql-chave-estrangeira/558559
-  ALTER TABLE TABELA_SERVICO ADD CONSTRAINT 'NOME DA USA CONSTRAINT' FOREIGN KEY(NOME ATRIBUTO AO QUAL QUER REFERENCIAR)
-  REFERENCES NOMEDATABELA(ATRIBUTOQUEDESEJA); 
+	  ALTER TABLE TABELA_SERVICO ADD CONSTRAINT 'NOME DA USA CONSTRAINT' FOREIGN KEY(NOME ATRIBUTO AO QUAL QUER REFERENCIAR)
+	  REFERENCES NOMEDATABELA(ATRIBUTOQUEDESEJA); 
 
   * Atualizando dados de campos já populados na tabela
-   UPDATE nomedatabela SET atributo=novovalor WHERE id=iddatabela
+  	 UPDATE nomedatabela SET atributo=novovalor WHERE id=iddatabela
 
   * JOIN
-  Inner Join    // retorna os registros que são comuns às duas tabelas.
-  Exemplo:
-  SELECT o.purchaseOrder_id,  p.name, o.amount, p.unitaryValue, o.Totalvalue
-  FROM orderedItem as o
-  INNER JOIN product as p
-                on o.product_id = p.id
-					          ORDER BY o.purchaseOrder_id;
+	  Inner Join    // retorna os registros que são comuns às duas tabelas.
+	  Exemplo:
+	  SELECT o.purchaseOrder_id,  p.name, o.amount, p.unitaryValue, o.Totalvalue
+	  FROM orderedItem as o
+	  INNER JOIN product as p
+			on o.product_id = p.id
+							  ORDER BY o.purchaseOrder_id;
   
   Left Join   // tem como resultado todos os registros que estão na tabela A (mesmo que não estejam na tabela B) e os registros 
-  da tabela B que são comuns à tabela A.
-  SELECT a.Nome, b.Nome
-  FROM TabelaA as A
-  LEFT JOIN TabelaB as B
-                on a.Nome = b.Nome
+	  da tabela B que são comuns à tabela A.
+	  SELECT a.Nome, b.Nome
+	  FROM TabelaA as A
+	  LEFT JOIN TabelaB as B
+			on a.Nome = b.Nome
   
   Right Join    // teremos como resultado todos os registros que estão na tabela B (mesmo que não estejam na tabela A) e os registros 
   da tabela A que são comuns à tabela B.
-  SELECT a.Nome, b.Nome
-  FROM TabelaA as A
-  RIGHT JOIN TabelaB as B
-  on a.Nome = b.Nome
+	  SELECT a.Nome, b.Nome
+	  FROM TabelaA as A
+	  RIGHT JOIN TabelaB as B
+	  on a.Nome = b.Nome
   
   Outer Join    //  tem como resultado todos os registros que estão na tabela A e todos os registros da tabela B.
-  SELECT a.Nome, b.Nome
-  FROM TabelaA as A
-  FULL OUTER JOIN TabelaB as B
-    on a.Nome = b.Nome
+	  SELECT a.Nome, b.Nome
+	  FROM TabelaA as A
+	  FULL OUTER JOIN TabelaB as B
+	    on a.Nome = b.Nome
 
   Left Excluding Join   // retorna como resultado todos os registros que estão na tabela A e que não estejam na tabela B.
-  SELECT a.Nome, b.Nome
-  FROM TabelaA as A
-  LEFT JOIN TabelaB as B
-                on a.Nome = b.Nome
-  WHERE b.Nome is null
+	  SELECT a.Nome, b.Nome
+	  FROM TabelaA as A
+	  LEFT JOIN TabelaB as B
+			on a.Nome = b.Nome
+	  WHERE b.Nome is null
   
   Right Excluding Join    //  retorna como resultado todos os registros que estão na tabela B e que não estejam na tabela A.
-  SELECT a.Nome, b.Nome
-  FROM TabelaA as A
-  RIGHT JOIN TabelaB as B
-    on a.Nome = b.Nome
-  WHERE a.Nome is null
+	  SELECT a.Nome, b.Nome
+	  FROM TabelaA as A
+	  RIGHT JOIN TabelaB as B
+	    on a.Nome = b.Nome
+	  WHERE a.Nome is null
 
   Outer Excluding Join    //  teremos como resultado todos os registros que estão na tabela B, mas que não estejam na tabela A, e todos os 
   registros que estão na tabela A, mas que não estejam na tabela B.
-  SELECT a.Nome, b.Nome
-  FROM TabelaA as A
-  FULL OUTER JOIN TabelaB as B
-      on a.Nome = b.Nome
-  WHERE a.Nome is null or b.Nome is null
+	  SELECT a.Nome, b.Nome
+	  FROM TabelaA as A
+	  FULL OUTER JOIN TabelaB as B
+	      on a.Nome = b.Nome
+	  WHERE a.Nome is null or b.Nome is null
 
 -- Parametros para atributos
-AUTO-INCREMENT
-NOT NULL
-UNIQUE
+	AUTO-INCREMENT
+	NOT NULL
+	UNIQUE
 
 -- Instalação
-  MySql > sudo apt install mysql-server mysql-client && sudo mysql_secure_installation
-  WorkBench > sudo apt install mysql-workbench
+	MySql > sudo apt install mysql-server mysql-client && sudo mysql_secure_installation
+	WorkBench > sudo apt install mysql-workbench
   
 -- Comandos terminal / Configuração / Manutenção
-  mysql -h localhost -u root -p   // Entrar no mysql setando o -h referenciando o servidor (localhost), -u referenciando ao usuário
-  e -p referente a senha.
-  CREATE USER 'novousuario'@'localhost' IDENTIFIED BY 'password';   //Criar um Novo Usuário
-  GRANT ALL PRIVILEGES ON * . * TO 'novousuario'@'localhost';   // Atribuir privilégios a determinado usuário
-  FLUSH PRIVILEGES;   // Resetar privilégios
-  
+	mysql -h localhost -u root -p   // Entrar no mysql setando o -h referenciando o servidor (localhost), -u referenciando ao usuário
+	e -p referente a senha.
+	CREATE USER 'novousuario'@'localhost' IDENTIFIED BY 'password';   //Criar um Novo Usuário
+	GRANT ALL PRIVILEGES ON * . * TO 'novousuario'@'localhost';   // Atribuir privilégios a determinado usuário
+	FLUSH PRIVILEGES;   // Resetar privilégios
+
 -- Sites 
-Curso > https://www.youtube.com/watch?v=Ofktsne-utM&list=PLHz_AreHm4dkBs-795Dsgvau_ekxg8g1r 
-Desinstalar mysql > https://linuxscriptshub.com/uninstall-completely-remove-mysql-ubuntu-16-04/ 
-Primeiros passos mysql > https://www.devmedia.com.br/primeiros-passos-no-mysql/28438
-Relacionamento de tabelas > https://www.devmedia.com.br/forum/relacionamento-de-tabelas-no-mysql-chave-estrangeira/558559
+	Curso > https://www.youtube.com/watch?v=Ofktsne-utM&list=PLHz_AreHm4dkBs-795Dsgvau_ekxg8g1r 
+	Desinstalar mysql > https://linuxscriptshub.com/uninstall-completely-remove-mysql-ubuntu-16-04/ 
+	Primeiros passos mysql > https://www.devmedia.com.br/primeiros-passos-no-mysql/28438
+	Relacionamento de tabelas > https://www.devmedia.com.br/forum/relacionamento-de-tabelas-no-mysql-chave-estrangeira/558559
 
 
