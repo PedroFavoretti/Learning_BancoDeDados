@@ -48,8 +48,12 @@ Para o que serve? Registrar instâncias de coisas separadas que tem caracterisit
 	  PRIMARY KEY (id)
 	  );
 	  
-	  ALTER TABLE itemPedido CHANGE COLUMN quantidade amount INT(11) NOT NULL;		// Alterar dados coluna
+	  ALTER TABLE itemPedido CHANGE COLUMN quantidade amount INT(11) NOT NULL;	// Alterar dados da coluna renomeando a mesma [
+	  CHANGE: tipos, constraints e nome da coluna] 
+	  ALTER TABLE itemPedido MODIFY COLUMN quantidade INT(11) NOT NULL;		// Alterar dados da coluna [MODIFY:
+	  alterar tipos e constraints]
 	  ALTER TABLE purchaseOrder ADD COLUMN customer_id INT(4) NOT NULL;	// Adicionar dados coluna
+	  ALTER TABLE pessoa RENAME TO gafanhotos;	// Renomear tabelas
 	  
 	  ALTER TABLE TABELA_SERVICO ADD CONSTRAINT 'NOME DA CONSTRAINT' FOREIGN KEY(NOME ATRIBUTO AO QUAL QUER REFERENCIAR)
 	  REFERENCES NOMEDATABELA(ATRIBUTOQUEDESEJA); 		// Alterando tabela e adicionando relacionamentos
@@ -117,6 +121,8 @@ Para o que serve? Registrar instâncias de coisas separadas que tem caracterisit
 	AUTO-INCREMENT
 	NOT NULL
 	UNIQUE
+	AFTER
+	FIRST
 
 -- Instalação
 	MySql > sudo apt install mysql-server mysql-client && sudo mysql_secure_installation
