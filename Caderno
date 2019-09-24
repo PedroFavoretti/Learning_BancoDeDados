@@ -13,15 +13,16 @@ Para o que serve? Registrar instâncias de coisas separadas que tem caracterisit
    Relacionamento: Entidade relacionada a outra entidade
    
    -- Linguagens
-   	DDL: Definição {CREATE DATABASE, CREATE TABLE}
-	DML: Manipulação {INSERT INTO}
+   	DDL: Definição / Mexe na estrutura {CREATE DATABASE, CREATE TABLE, ALTER TABLE, DROP TABLE }
+	DML: Manipulação / Mexe em dados {INSERT INTO}
 	DQL: Solicitações
 	DCL: Controle
 	DTL: Transações {Durabilidade, isolamento, consistência e atomicidade}
-
+	// Data [x] Language
+	
 -- Tipos primitivos
 	Numérico { Inteiro, Real, Lógico } 
-	DATA/TIME { Data, Hora }
+	DATA/TIME { Data, Hora, Year }
 	Literal { Caractere, Texto, Binário, Coleção }
 	Espacial { Geometry, Point, Polygon, MultiPolygon }
 	
@@ -37,7 +38,10 @@ Para o que serve? Registrar instâncias de coisas separadas que tem caracterisit
 	SELECT * FROM projetoDoceria.product;   // Listar da tabela projetoDoceria os dados de produtos
 
 	* Tabelas e colunas
-	
+	  
+	  IF NOT EXISTS || IF EXISTS	// Usado na criaçao de tabela como condicional, exemplo: CREATE TABLE IF NOT 
+	  EXISTS pessoa(...);
+	  
 	  CREATE TABLE users( 
 	  id int(4) AUTO_INCREMENT,
 	  name varchar(255) NOT NULL,
@@ -120,9 +124,10 @@ Para o que serve? Registrar instâncias de coisas separadas que tem caracterisit
 -- CONSTRAINTS
 	AUTO-INCREMENT
 	NOT NULL
-	UNIQUE
+	UNIQUE	
 	AFTER
-	FIRST
+	FIRST	
+	UNSIGNED (Sem acentuaçoes)
 
 -- Instalação
 	MySql > sudo apt install mysql-server mysql-client && sudo mysql_secure_installation
