@@ -3,6 +3,7 @@
 -------------------------------------------------------------------------------------------------------------------------------------------
 
 Para o que serve? Registrar instâncias de coisas separadas que tem caracterisitcas semelhantes em tabelas
+
 -- Estrutura
 	Modelo relacional: Tipo de estrutura de banco de dados onde as tabelas se relacionam e permitem que você caminhe através 
    	dessas relações buscando informações relacionadas.
@@ -15,7 +16,7 @@ Para o que serve? Registrar instâncias de coisas separadas que tem caracterisit
    
    -- Linguagens
    	DDL: Definição / Mexe na estrutura {CREATE DATABASE, CREATE TABLE, ALTER TABLE, DROP TABLE }
-	DML: Manipulação / Mexe em dados {INSERT INTO}
+	DML: Manipulação / Mexe em dados {INSERT INTO, UPDATE, DELETE, TRUNCATE}
 	DQL: Solicitações
 	DCL: Controle
 	DTL: Transações {Durabilidade, isolamento, consistência e atomicidade}
@@ -144,6 +145,13 @@ Para o que serve? Registrar instâncias de coisas separadas que tem caracterisit
 	GRANT ALL PRIVILEGES ON * . * TO 'novousuario'@'localhost';   // Atribuir privilégios a determinado usuário
 	FLUSH PRIVILEGES;   // Resetar privilégios
 
+-- Dump
+	Exportar:
+		Workbench: Server > Data Export > Setar atributos (Exportar apenas estrutura, datas, e etc...)
+		Terminal: mysqldump -u root -p projetoDoceria > ~/Documents/projetoDoceria.sql
+	Importar:
+		Workbench: Server > Data Import > Setar atributos
+		Terminal: mysql -u root -p projetoDoceria < ~/Documents/projetoDoceria.sql
 -- Sites 
 	Curso > https://www.youtube.com/watch?v=Ofktsne-utM&list=PLHz_AreHm4dkBs-795Dsgvau_ekxg8g1r 
 	Desinstalar mysql > https://linuxscriptshub.com/uninstall-completely-remove-mysql-ubuntu-16-04/ 
