@@ -125,24 +125,33 @@ Para o que serve? Registrar instâncias de coisas separadas que tem caracterisit
 			on a.Nome = b.Nome
 			WHERE a.Nome is null or b.Nome is null
 
--- CONSTRAINTS
+-- RESTRIÇÕES
 	AUTO-INCREMENT
 	NOT NULL
 	UNIQUE	
 	AFTER
 	FIRST	
 	UNSIGNED (Sem acentuaçoes)
-	%	// Normalmente usado em conjunto com algo, representa "Vários ou nenhum caráctere" ex: LIKE nome = 'P%'
 	
--- OPERADORES (EM COMANDOS DE CONSULTA)
+-- OPERADORES RELACIONAIS
 	LIMIT		// Limitar quantas linhas serão afetadas
 	ORDER BY	// Ordena por
 	DESC|ASC	// Decrescente
 	BETWEEN		// Entre
 	IN		// Dentro dos paramêtros especificados
-	LIKE		// Parecido com
+	LIKE|NOT LIKE	// Parecido com
+	DISTINCT	// Distinguir registros que não repetem
 	
-
+-- WILDCARDS
+	_	// Exige que tenha algo
+	%	// Normalmente usado em conjunto com algo, representa "Vários ou nenhum caráctere" ex: LIKE nome = 'P%'
+	
+-- FUNCÕES DE AGRAGAÇÃO
+	COUNT()		// Exibir quantos registros há (SELECT COUNT(*) FROM...)
+	MAX()|MIN()	// Exibir maior (SELECT MAX(carga) FROM...)
+	SUM()		// Soma
+	AVG()		// Média 
+	
 -- Instalação
 	MySql > sudo apt install mysql-server mysql-client && sudo mysql_secure_installation
 	WorkBench > sudo apt install mysql-workbench
