@@ -16,7 +16,7 @@ Para o que serve? Registrar instâncias de coisas separadas que tem caracterisit
    
    -- Linguagens
    	DDL: Definição / Mexe na estrutura {CREATE DATABASE, CREATE TABLE, ALTER TABLE, DROP TABLE }
-	DML: Manipulação / Mexe em dados {INSERT INTO, UPDATE, DELETE, TRUNCATE}
+	DML: Manipulação / Mexe em dados {INSERT INTO, UPDATE, DELETE, TRUNCATE, SELECT}
 	DQL: Solicitações
 	DCL: Controle
 	DTL: Transações {Durabilidade, isolamento, consistência e atomicidade}
@@ -132,11 +132,16 @@ Para o que serve? Registrar instâncias de coisas separadas que tem caracterisit
 	AFTER
 	FIRST	
 	UNSIGNED (Sem acentuaçoes)
+	%	// Normalmente usado em conjunto com algo, representa "Vários ou nenhum caráctere" ex: LIKE nome = 'P%'
 	
-	-- EM COMANDOS DE CONSULTA
-		LIMIT		// Limitar quantas linhas serão afetadas
-		ORDER BY	// Ordena por
-		DESC		// Decrescente
+-- OPERADORES (EM COMANDOS DE CONSULTA)
+	LIMIT		// Limitar quantas linhas serão afetadas
+	ORDER BY	// Ordena por
+	DESC|ASC	// Decrescente
+	BETWEEN		// Entre
+	IN		// Dentro dos paramêtros especificados
+	LIKE		// Parecido com
+	
 
 -- Instalação
 	MySql > sudo apt install mysql-server mysql-client && sudo mysql_secure_installation
