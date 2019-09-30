@@ -132,7 +132,11 @@ Para o que serve? Registrar instâncias de coisas separadas que tem caracterisit
 	AFTER
 	FIRST	
 	UNSIGNED (Sem acentuaçoes)
-	LIMIT // Limitar quantas linhas serão afetadas
+	
+	-- EM COMANDOS DE CONSULTA
+		LIMIT		// Limitar quantas linhas serão afetadas
+		ORDER BY	// Ordena por
+		DESC		// Decrescente
 
 -- Instalação
 	MySql > sudo apt install mysql-server mysql-client && sudo mysql_secure_installation
