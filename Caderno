@@ -20,8 +20,18 @@ Para o que serve? Registrar instâncias de coisas separadas que tem caracterisit
    estrutura. (DER)
    Entidade: Tabela
    Atributos: carácteristicas da tabela
-   Cardinalidade: 1 - n, n - 1. (Conceito que define com quantos registros/tuplas cada registro/tuplas pode se relacionar)
-   Cháve primária / PRIMARY KEY: Identifica cada registro, ou seja, ele e unico naquele contexto.
+   Cardinalidade: 1 - n, n - 1. (Conceito que define com quantos registros/tuplas cada registro/tuplas pode se relacionar) {
+   	Relacionamentos:
+		1 p 1: Entidade dominanete com chave estrangeira de outra entidade e vice-verssa
+		1 p n: Chave primária do lado 1 e joga para n como chave estrangeira
+		n p n: Irá ser criado uma nova entidade para representar esse relacionamento, nessa nova entidade será criado 
+		novos atributos referente ao cenário que se encontra criando uma chave primária para identifica-lá, assim cada 
+		tabela n irá virar 1 que irá se relacionar com essa nova entidade que será n p n. Neste caso jogar a chave 
+		primária de cada entidade na entidade n p n. Exemplo: Pedidos tem itens pedidos que
+		
+   }
+   Chave primária / PRIMARY KEY: Identifica cada registro, ou seja, ele e unico naquele contexto.
+   Chave estrangeira  / Foreign key: Chave primária de uma entidade x que esta na entidade y para criar relacionamento.
    
    
    
