@@ -4,15 +4,26 @@
 
 Para o que serve? Registrar instâncias de coisas separadas que tem caracterisitcas semelhantes em tabelas
 
+
+-- Como modelar
+	1. Modelar entidades com atributos e relacionamentos.
+	2. Classificar relacionamento com suas cardinalidades.
+
 -- Estrutura
-	Modelo relacional: Tipo de estrutura de banco de dados onde as tabelas se relacionam e permitem que você caminhe através 
+	Modelo relacional: Tipo de estrutura de banco de dados onde as entidades se relacionam e permitem que você caminhe através 
    	dessas relações buscando informações relacionadas.
 	
 	BANCO DE DADOS { TABELAS { COLUNAS { REGISTROS }}}
 
 -- Definições / Conceitos
-   Relacionamento: Entidade relacionada a outra entidade
-   Cháve primária: Identifica cada registro
+   Relacionamento: Entidade relacionada a outra entidade, ultiza o diagrama entidade-relacionamento para esboçar sua
+   estrutura. (DER)
+   Entidade: Tabela
+   Atributos: carácteristicas da tabela
+   Cardinalidade: 1 - n, n - 1. (Conceito que define com quantos registros/tuplas cada registro/tuplas pode se relacionar)
+   Cháve primária / PRIMARY KEY: Identifica cada registro, ou seja, ele e unico naquele contexto.
+   
+   
    
    -- Linguagens
    	DDL: Definição / Mexe na estrutura {CREATE DATABASE, CREATE TABLE, ALTER TABLE, DROP TABLE }
