@@ -12,10 +12,14 @@ Para o que serve? Registrar instâncias de coisas separadas que tem caracterisit
 -- Estrutura
 	Modelo relacional: Tipo de estrutura de banco de dados onde as entidades se relacionam e permitem que você caminhe através 
    	dessas relações buscando informações relacionadas.
-	
 	BANCO DE DADOS { TABELAS { COLUNAS { REGISTROS }}}
+	ENGINE: "Máquina de criação de tabelas" inoDB: "Criação de tabelas com alguma carácteristicas, permite relacionamento
+	entre entidades pois são compátives com chaves estrangeiras e garante os 4 fundamentos necessários para que ocorra
+	uma transação {Durabilidade, isolamento, consistência e atomicidade}"
+
 
 -- Definições / Conceitos
+
    Relacionamento: Entidade relacionada a outra entidade, ultiza o diagrama entidade-relacionamento para esboçar sua
    estrutura. (DER)
    Entidade: Tabela
