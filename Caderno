@@ -19,7 +19,7 @@ Para o que serve? Registrar instâncias de coisas separadas que tem caracterisit
 
 
 -- Definições / Conceitos
-
+   Integridade referêncial: Não se pode deletar registros que possuem relacionamentos.
    Relacionamento: Entidade relacionada a outra entidade, ultiza o diagrama entidade-relacionamento para esboçar sua
    estrutura. (DER)
    Entidade: Tabela
