@@ -97,17 +97,16 @@ Para o que serve? Registrar instâncias de coisas separadas que tem caracterisit
  	 INSERT INTO fornecedores(codigo, nome) VALUES (null, “Ricardo")	// Inserir dados na tabela
 	 UPDATE nomedatabela SET atributo=novovalor WHERE id=iddatabela		// Atualizando registros de colunas já populadas
   	
-
-  
 	
 	* JOIN
-	  Inner Join    // retorna os registros que são comuns às duas tabelas.
+	  Inner Join    // retorna os registros que são comuns às duas tabelas ou seja que tenha relação.
 	  Exemplo:
 	  SELECT o.purchaseOrder_id,  p.name, o.amount, p.unitaryValue, o.Totalvalue
 	  FROM orderedItem as o
 	  INNER JOIN product as p
-			on o.product_id = p.id
-							  ORDER BY o.purchaseOrder_id;
+			on o.product_id = p.id		// Restrição para o JOIN, assim ira juntar as tabelas porém aplicando
+			a restrição definida no on.
+			ORDER BY o.purchaseOrder_id;	
   
 	* Left Join   // tem como resultado todos os registros que estão na tabela A (mesmo que não estejam na tabela B) e os registros 
 	  da tabela B que são comuns à tabela A.
@@ -123,7 +122,8 @@ Para o que serve? Registrar instâncias de coisas separadas que tem caracterisit
 		RIGHT JOIN TabelaB as B
 			on a.Nome = b.Nome
   
-	* Outer Join    //  tem como resultado todos os registros que estão na tabela A e todos os registros da tabela B.
+	* Outer Join (Pode ser usado LEFT / RIGHT para definir qual tabela terá preferência na query)   //  tem como resultado todos 
+	os registros que estão na tabela A e todos os registros da tabela B, inclusive os que não se relacionam.
 		SELECT a.Nome, b.Nome
 		FROM TabelaA as A
 		FULL OUTER JOIN TabelaB as B
