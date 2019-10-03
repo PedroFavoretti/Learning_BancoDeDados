@@ -19,6 +19,9 @@ Para o que serve?
 	consistência e atomicidade}"
 
 -- Definições / Conceitos
+	   View		// Agrupamento de tabelas
+	   Procedures		// Permitem gerar lógicas estruturadas / funções.
+	   Trigger		// Alertas/Avisos caso aconteca qualquer coisa na tabela.
 	   Integridade referêncial: Não se pode deletar registros que possuem relacionamentos.
 	   Relacionamento: Entidade relacionada a outra entidade, ultiza o diagrama entidade-relacionamento para esboçar sua
 	   estrutura. (DER)
