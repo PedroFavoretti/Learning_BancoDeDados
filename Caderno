@@ -2,40 +2,40 @@
                                                     BANCO DE DADOS / MYSQL
 -------------------------------------------------------------------------------------------------------------------------------------------
 
-Para o que serve? Registrar instâncias de coisas separadas que tem caracterisitcas semelhantes em tabelas
-
+Para o que serve?
+	Registrar instâncias de coisas separadas que tem caracterisitcas semelhantes em tabelas.
 
 -- Como modelar
 	1. Modelar entidades com atributos e relacionamentos.
 	2. Classificar relacionamento com suas cardinalidades.
 
 -- Estrutura
-	Modelo relacional: Tipo de estrutura de banco de dados onde as entidades se relacionam e permitem que você caminhe através 
-   	dessas relações buscando informações relacionadas.
-	BANCO DE DADOS { TABELAS { COLUNAS { REGISTROS }}}
-	ENGINE: "Máquina de criação de tabelas" inoDB: "Criação de tabelas com alguma carácteristicas, permite relacionamento
-	entre entidades pois são compátives com chaves estrangeiras e garante os 4 fundamentos necessários para que ocorra
-	uma transação {Durabilidade, isolamento, consistência e atomicidade}"
-
+	Modelo relacional: Tipo de estrutura de banco de dados onde as entidades se relacionam e permitem que você caminhe atr
+	avés dessas relações buscando informações relacionadas.
+	BANCO DE DADOS { TABELAS { COLUNAS { REGISTROS/TUPLAS }}}
+	ENGINE: "Máquina de criação de tabelas" 
+	inoDB: "Criação de tabelas com algumas carácteristicas, permite relacionamento entre entidades pois são compátives com 
+	chaves estrangeiras e garantem os 4 fundamentos necessários para que ocorra uma transação {Durabilidade, isolamento,
+	consistência e atomicidade}"
 
 -- Definições / Conceitos
-   Integridade referêncial: Não se pode deletar registros que possuem relacionamentos.
-   Relacionamento: Entidade relacionada a outra entidade, ultiza o diagrama entidade-relacionamento para esboçar sua
-   estrutura. (DER)
-   Entidade: Tabela
-   Atributos: carácteristicas da tabela
-   Cardinalidade: 1 - n, n - 1. (Conceito que define com quantos registros/tuplas cada registro/tuplas pode se relacionar) {
-   	Relacionamentos:
-		1 p 1: Entidade dominanete com chave estrangeira de outra entidade e vice-verssa
-		1 p n: Chave primária do lado 1 e joga para n como chave estrangeira
-		n p n: Irá ser criado uma nova entidade para representar esse relacionamento, nessa nova entidade será criado 
-		novos atributos referente ao cenário que se encontra criando uma chave primária para identifica-lá, assim cada 
-		tabela n irá virar 1 que irá se relacionar com essa nova entidade que será n p n. Neste caso jogar a chave 
-		primária de cada entidade na entidade n p n. Exemplo: Pedidos tem itens pedidos que
-		
-   }
-   Chave primária / PRIMARY KEY: Identifica cada registro, ou seja, ele e unico naquele contexto.
-   Chave estrangeira  / Foreign key: Chave primária de uma entidade x que esta na entidade y para criar relacionamento.
+	   Integridade referêncial: Não se pode deletar registros que possuem relacionamentos.
+	   Relacionamento: Entidade relacionada a outra entidade, ultiza o diagrama entidade-relacionamento para esboçar sua
+	   estrutura. (DER)
+	   Entidade: Tabela
+	   Atributos: carácteristicas da tabela
+	   Cardinalidade: 1 - n, n - 1. (Conceito que define com quantos registros/tuplas cada registro/tuplas pode se relacionar) {
+		Relacionamentos:
+			1 p 1: Entidade dominanete com chave estrangeira de outra entidade e vice-verssa
+			1 p n: Chave primária do lado 1 e joga para n como chave estrangeira
+			n p n: Irá ser criado uma nova entidade para representar esse relacionamento, nessa nova entidade será 
+			criado novos atributos referente ao cenário que se encontra criando uma chave primária para identifica-lá,
+			assim cada tabela n irá virar 1 que irá se relacionar com essa nova entidade que será n p n. Neste caso 
+			jogar a chave primária de cada entidade na entidade n p n. Exemplo: Pedidos tem itens pedidos que se rela
+			ciona com a tabela pedidos e produtos, ou seja, a itens pedidos é a tabela intermediadora.
+	   }	
+	   Chave primária / PRIMARY KEY: Identifica cada registro, ou seja, ele e unico naquele contexto.
+	   Chave estrangeira  / Foreign key: Chave primária de uma entidade x que esta na entidade y para criar um relacionamento.
    
    
    
@@ -79,19 +79,16 @@ Para o que serve? Registrar instâncias de coisas separadas que tem caracterisit
 	  PRIMARY KEY (id)
 	  );
 	  
-	  ALTER TABLE itemPedido CHANGE COLUMN quantidade amount INT(11) NOT NULL;	// Alterar dados da coluna renomeando a mesma [
-	  CHANGE: tipos, constraints e nome da coluna] 
-	  ALTER TABLE itemPedido MODIFY COLUMN quantidade INT(11) NOT NULL;		// Alterar dados da coluna [MODIFY:
-	  alterar tipos e constraints]
+	  ALTER TABLE itemPedido CHANGE COLUMN quantidade amount INT(11) NOT NULL;	// Alterar dados da coluna renomeando a 
+	  mesma [CHANGE: tipos, constraints e nome da coluna] 
+	  ALTER TABLE itemPedido MODIFY COLUMN quantidade INT(11) NOT NULL;		// Alterar dados da coluna [MODIFY: alt
+	  erar tipos e constraints]
 	  ALTER TABLE purchaseOrder ADD COLUMN customer_id INT(4) NOT NULL;	// Adicionar dados coluna
 	  ALTER TABLE pessoa RENAME TO gafanhotos;	// Renomear tabelas
-	  
 	  ALTER TABLE TABELA_SERVICO ADD CONSTRAINT 'NOME DA CONSTRAINT' FOREIGN KEY(NOME ATRIBUTO AO QUAL QUER REFERENCIAR)
 	  REFERENCES NOMEDATABELA(ATRIBUTOQUEDESEJA); 		// Alterando tabela e adicionando relacionamentos
-
 	  TRUNCATE TABLE cursos;
-	  
-	  
+	  	  
 	* Registros
    	 DELETE FROM tbl_autores WHERE ID_Autor = 2;		// Excluir registros
  	 INSERT INTO fornecedores(codigo, nome) VALUES (null, “Ricardo")	// Inserir dados na tabela
@@ -182,9 +179,10 @@ Para o que serve? Registrar instâncias de coisas separadas que tem caracterisit
 	WorkBench > sudo apt install mysql-workbench
   
 -- Comandos terminal / Configuração / Manutenção
-	mysql -h localhost -u root -p   // Entrar no mysql setando o -h referenciando o servidor (localhost), -u referenciando ao usuário
-	e -p referente a senha.
-	CREATE USER 'novousuario'@'localhost' IDENTIFIED BY 'password';   //Criar um Novo Usuário
+	mysql -h localhost -u root -p   // Entrar no mysql setando o -h referenciando o host (localhost), -u referenciando ao 
+	usuário	e -p referente a senha.
+	CREATE USER 'novousuario'@'localhost' IDENTIFIED BY 'password';   // Criar um Novo Usuário
+	ALTER USER 'root'@'localhost' IDENTIFIED BY 'nova-senha';		// Alterar senha do usuário root
 	GRANT ALL PRIVILEGES ON * . * TO 'novousuario'@'localhost';   // Atribuir privilégios a determinado usuário
 	FLUSH PRIVILEGES;   // Resetar privilégios
 
