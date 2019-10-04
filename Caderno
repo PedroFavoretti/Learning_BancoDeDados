@@ -17,8 +17,27 @@ Para o que serve?
 	inoDB: "Criação de tabelas com algumas carácteristicas, permite relacionamento entre entidades pois são compátives com 
 	chaves estrangeiras e garantem os 4 fundamentos necessários para que ocorra uma transação {Durabilidade, isolamento,
 	consistência e atomicidade}"
+	
+-- Tipos
+	Inteiros: 
+		TINYINT; 1 BYTE
+		SMALLINT; 2 BYTE
+		MEDIUMINT; 3 BYTE
+		INT; 4 BYTE
+		BIGINT; 8 BYTE
+	Ponto flutuante:
+		FLOAT; 4 BYTES		// Pode ser especificado quantos digitos e casas decimais irá receber, exemplo: FLOAT(7,4)
+		DOUBLE; 8 BYTES
+	Fixos:
+		DECIMAL;	|   Até 65 digitos
+		NUMERIC;	|   Tambem pode ser especificado quantos digitos e casas decimais irá receber.
+	Único:
+		BIT;		// Até 64 BITS; exemplo: BIT(1) pode ser 1 ou 0; BIT(2) - Pode ser 01,10,00,11 (Usado em tipos
+		lógicos, onde precisamos de 0 ou 1)
 
 -- Definições / Conceitos
+	   Tipos de dados: podem receber parametrizações de quantos digitos e casas decimais irá receber, exemplo: INT(4), se armaz
+	   enado o valor 5, a representação ficará da seguinte forma: 0005.
 	   View		// Agrupamento de tabelas
 	   Procedures		// Permitem gerar lógicas estruturadas / funções.
 	   Trigger		// Alertas/Avisos caso aconteca qualquer coisa na tabela.
