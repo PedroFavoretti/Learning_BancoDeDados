@@ -20,20 +20,50 @@ Para o que serve?
 	
 -- Tipos
 	Inteiros: 
-		TINYINT; 1 BYTE
-		SMALLINT; 2 BYTE
-		MEDIUMINT; 3 BYTE
-		INT; 4 BYTE
-		BIGINT; 8 BYTE
+		TINYINT: 1 BYTE
+		SMALLINT: 2 BYTE
+		MEDIUMINT: 3 BYTE
+		INT: 4 BYTE
+		BIGINT: 8 BYTE
 	Ponto flutuante:
-		FLOAT; 4 BYTES		// Pode ser especificado quantos digitos e casas decimais irá receber, exemplo: FLOAT(7,4)
-		DOUBLE; 8 BYTES
+		FLOAT: 4 BYTES		// Pode ser especificado quantos digitos e casas decimais irá receber, exemplo: FLOAT(7,4)
+		DOUBLE: 8 BYTES
 	Fixos:
-		DECIMAL;	|   Até 65 digitos
-		NUMERIC;	|   Tambem pode ser especificado quantos digitos e casas decimais irá receber.
+		DECIMAL:	|   Até 65 digitos
+		NUMERIC:	|   Tambem pode ser especificado quantos digitos e casas decimais irá receber.
 	Único:
-		BIT;		// Até 64 BITS; exemplo: BIT(1) pode ser 1 ou 0; BIT(2) - Pode ser 01,10,00,11 (Usado em tipos
+		BIT:		// Até 64 BITS; exemplo: BIT(1) pode ser 1 ou 0; BIT(2) - Pode ser 01,10,00,11 (Usado em tipos
 		lógicos, onde precisamos de 0 ou 1)
+	Data e Hora:
+		DATE: 1000-01-01 ATŔ 9999-12-31
+		DATETIME: 1000-01-01 00:00:00 ATŔ 9999-12-31 23:59:59
+		TIMESTAMP: 1970-01-01 00:00:01 UTC até 2038-01-19 UTC
+		TIME: -838:59:59 e 839:59:59
+		YEAR: 1901 - 2155 (Pode ser expresso no formato 2 ou 4 dígitos)
+	Strings:
+		CHAR(X)		// Caracteres com valor fixo (0 a 255)	// Se definido 4 caracteres por exemplo, e você 
+		armazenar 3, será introduzido um espaço em branco no lugar desse quarto digito.
+		VARCHAR(X)	// Varia de acordo com valor passado, sem passar do limite imposto.
+		BINARY		// Valor fixo de 0 a 255 expressos em Binário
+		VARBINARY	// Caracteres com valor váriados entre 0 a 255, expressos em binário.
+		BLOB: Binário longo, podemos ter:
+			TINYBLOB,
+			BLOB,
+			MEDIUMBLOB,
+			LONGBLOB
+		TEXT	// Texto longo
+			TINYTEXT,
+			TEXT,
+			MEDIUMTEXT,
+			LONGTEXT
+		ENUM		// Permite armazenar uma lista de valores pré definidos.
+		SET e COLLATE		// Definir que tipo de conjunto de caracteres serão suortados.
+		SPACIAL:
+			GEOMETRY,
+			POINT,
+			POLYGON,
+			MULTIPOLYGON
+		
 
 -- Definições / Conceitos
 	   Tipos de dados: podem receber parametrizações de quantos digitos e casas decimais irá receber, exemplo: INT(4), se armaz
@@ -58,7 +88,9 @@ Para o que serve?
 	   }	
 	   Chave primária / PRIMARY KEY: Identifica cada registro, ou seja, ele e unico naquele contexto.
 	   Chave estrangeira  / Foreign key: Chave primária de uma entidade x que esta na entidade y para criar um relacionamento.
-   
+   	   Erros comuns {
+	   	OUT FO RANGE: Ocorre quando os valores estouram os limites do tipo.
+	   }
    
    
    -- Linguagens
