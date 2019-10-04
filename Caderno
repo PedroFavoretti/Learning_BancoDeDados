@@ -58,12 +58,12 @@ Para o que serve?
 			LONGTEXT
 		ENUM		// Permite armazenar uma lista de valores pré definidos.
 		SET e COLLATE		// Definir que tipo de conjunto de caracteres serão suortados.
-		SPACIAL:
-			GEOMETRY,
-			POINT,
-			POLYGON,
-			MULTIPOLYGON
-		
+	SPACIAL:
+		GEOMETRY,
+		POINT,
+		POLYGON,
+		MULTIPOLYGON
+
 
 -- Definições / Conceitos
 	   Tipos de dados: podem receber parametrizações de quantos digitos e casas decimais irá receber, exemplo: INT(4), se armaz
@@ -101,27 +101,75 @@ Para o que serve?
 	DTL: Transações {Durabilidade, isolamento, consistência e atomicidade}
 	// Data [x] Language
 	
--- Tipos primitivos
-	Numérico { Inteiro, Real, Lógico } 
-	DATA/TIME { Data, Hora, Year }
-	Literal { Caractere, Texto, Binário, Coleção }
-	Espacial { Geometry, Point, Polygon, MultiPolygon }
-	
--- Comandos 
-	CREATE DATABASE bancodeteste // Criar base de dados
-	DEFAULT CHARACTER SET utf8 		|| Ambos para configu -
-	DEFAULT COLLATE utf8_general_ci;	|| ração de acentuação
-	USE bancodeteste;   // Usar base de dados
+-- Comandos
+	CREATE:
+		CREATE DATABASE bancodeteste 		// Criar base de dados
+		DEFAULT CHARACTER SET utf8 		|| Ambos para configu -
+		DEFAULT COLLATE utf8_general_ci;	|| ração de acentuação
+	SELECT:
+		SELECT * FROM projetoDoceria.product;   // Listar do banco de dados projetoDoceria os dados da tabela produto
+		SELECT * FROM tbCliente WHERE YEAR(DATA_NASCIMENTO) = 1995;
+		SELECT * FROM tbCliente WHERE MOUNTH(DATA_NASCIMENTO) = 05;
+		
+		* Inner Join		// retorna os registros que são comuns às duas tabelas ou seja que tenha relação.
+		
+		  SELECT o.purchaseOrder_id,  p.name, o.amount, p.unitaryValue, o.Totalvalue
+		  FROM orderedItem as o
+		  INNER JOIN product as p
+			on o.product_id = p.id		// Restrição para o JOIN, assim ira juntar as tabelas porém apli
+			cando a restrição definida no on.
+			ORDER BY o.purchaseOrder_id;	
+
+		* Left Join	// tem como resultado todos os registros que estão na tabela A (mesmo que não estejam 
+		na tabela B) e os registros da tabela B que são comuns à tabela A.
+		  
+		  SELECT a.Nome, b.Nome
+		  FROM TabelaA as A
+		  LEFT JOIN TabelaB as B
+				on a.Nome = b.Nome
+
+		* Right Join    // teremos como resultado todos os registros que estão na tabela B (mesmo que não estejam na tabela A) e os registros 
+		da tabela A que são comuns à tabela B.
+			SELECT a.Nome, b.Nome
+			FROM TabelaA as A
+			RIGHT JOIN TabelaB as B
+				on a.Nome = b.Nome
+
+		* Outer Join (Pode ser usado LEFT / RIGHT para definir qual tabela terá preferência na query)   //  tem como resultado todos 
+		os registros que estão na tabela A e todos os registros da tabela B, inclusive os que não se relacionam.
+			SELECT a.Nome, b.Nome
+			FROM TabelaA as A
+			FULL OUTER JOIN TabelaB as B
+				on a.Nome = b.Nome
+		* Left Excluding Join   // retorna como resultado todos os registros que estão na tabela A e que não estejam na tabela B.
+			SELECT a.Nome, b.Nome
+			FROM TabelaA as A
+			LEFT JOIN TabelaB as B
+				on a.Nome = b.Nome
+				WHERE b.Nome is null
+
+		* Right Excluding Join    //  retorna como resultado todos os registros que estão na tabela B e que não estejam na tabela A.
+			SELECT a.Nome, b.Nome
+			FROM TabelaA as A
+			RIGHT JOIN TabelaB as B
+				on a.Nome = b.Nome
+				WHERE a.Nome is null
+
+		* Outer Excluding Join    //  teremos como resultado todos os registros que estão na tabela B, mas que não estejam na tabela A, e todos os 
+		registros que estão na tabela A, mas que não estejam na tabela B.
+			SELECT a.Nome, b.Nome
+			FROM TabelaA as A
+			FULL OUTER JOIN TabelaB as B
+				on a.Nome = b.Nome
+				WHERE a.Nome is null or b.Nome is null
+		
+	USE bancodeteste;   		// Usar base de dados
 	DESCRIBE || DESC;		// Descrever dados desejados
 	STATUS;			// Listar BD abertos
 	DROP;			// Excluir tabelas
 	RENAME TABLE users TO user;    // Renomear tabela
-	SELECT * FROM projetoDoceria.product;   // Listar da tabela projetoDoceria os dados de produtos
-
+	
 	* Tabelas e colunas
-	  
-	  IF NOT EXISTS || IF EXISTS	// Usado na criaçao de tabela como condicional, exemplo: CREATE TABLE IF NOT 
-	  EXISTS pessoa(...);
 	  
 	  CREATE TABLE users( 
 	  id int(4) AUTO_INCREMENT,
@@ -147,59 +195,6 @@ Para o que serve?
    	 DELETE FROM tbl_autores WHERE ID_Autor = 2;		// Excluir registros
  	 INSERT INTO fornecedores(codigo, nome) VALUES (null, “Ricardo")	// Inserir dados na tabela
 	 UPDATE nomedatabela SET atributo=novovalor WHERE id=iddatabela		// Atualizando registros de colunas já populadas
-  	
-	
-	* JOIN
-	  Inner Join    // retorna os registros que são comuns às duas tabelas ou seja que tenha relação.
-	  Exemplo:
-	  SELECT o.purchaseOrder_id,  p.name, o.amount, p.unitaryValue, o.Totalvalue
-	  FROM orderedItem as o
-	  INNER JOIN product as p
-			on o.product_id = p.id		// Restrição para o JOIN, assim ira juntar as tabelas porém aplicando
-			a restrição definida no on.
-			ORDER BY o.purchaseOrder_id;	
-  
-	* Left Join   // tem como resultado todos os registros que estão na tabela A (mesmo que não estejam na tabela B) e os registros 
-	  da tabela B que são comuns à tabela A.
-	  SELECT a.Nome, b.Nome
-	  FROM TabelaA as A
-	  LEFT JOIN TabelaB as B
-			on a.Nome = b.Nome
-  
-	* Right Join    // teremos como resultado todos os registros que estão na tabela B (mesmo que não estejam na tabela A) e os registros 
-  	da tabela A que são comuns à tabela B.
-		SELECT a.Nome, b.Nome
-		FROM TabelaA as A
-		RIGHT JOIN TabelaB as B
-			on a.Nome = b.Nome
-  
-	* Outer Join (Pode ser usado LEFT / RIGHT para definir qual tabela terá preferência na query)   //  tem como resultado todos 
-	os registros que estão na tabela A e todos os registros da tabela B, inclusive os que não se relacionam.
-		SELECT a.Nome, b.Nome
-		FROM TabelaA as A
-		FULL OUTER JOIN TabelaB as B
-			on a.Nome = b.Nome
-	* Left Excluding Join   // retorna como resultado todos os registros que estão na tabela A e que não estejam na tabela B.
-		SELECT a.Nome, b.Nome
-		FROM TabelaA as A
-		LEFT JOIN TabelaB as B
-			on a.Nome = b.Nome
-			WHERE b.Nome is null
-  
-	* Right Excluding Join    //  retorna como resultado todos os registros que estão na tabela B e que não estejam na tabela A.
-		SELECT a.Nome, b.Nome
-		FROM TabelaA as A
-		RIGHT JOIN TabelaB as B
-			on a.Nome = b.Nome
-			WHERE a.Nome is null
-
-	* Outer Excluding Join    //  teremos como resultado todos os registros que estão na tabela B, mas que não estejam na tabela A, e todos os 
-  	registros que estão na tabela A, mas que não estejam na tabela B.
-		SELECT a.Nome, b.Nome
-		FROM TabelaA as A
-		FULL OUTER JOIN TabelaB as B
-			on a.Nome = b.Nome
-			WHERE a.Nome is null or b.Nome is null
 
 -- RESTRIÇÕES
 	AUTO-INCREMENT
@@ -208,6 +203,7 @@ Para o que serve?
 	AFTER
 	FIRST	
 	UNSIGNED (Sem acentuaçoes)
+	IF NOT EXISTS || IF EXISTS	// Usado como condicional, exemplo: CREATE TABLE IF NOT EXISTS pessoa(...);
 	
 -- OPERADORES RELACIONAIS
 	LIMIT		// Limitar quantas linhas serão afetadas
