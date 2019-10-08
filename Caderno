@@ -213,6 +213,7 @@ Para o que serve?
 	IN		// Dentro dos paramêtros especificados
 	LIKE|NOT LIKE	// Parecido com
 	DISTINCT	// Distinguir registros que não repetem
+	NOT 		// Nega o que estiver a frente
 	
 -- WILDCARDS
 	_	// Exige que tenha algo
@@ -235,7 +236,8 @@ Para o que serve?
 	ALTER USER 'root'@'localhost' IDENTIFIED BY 'nova-senha';		// Alterar senha do usuário root
 	GRANT ALL PRIVILEGES ON * . * TO 'novousuario'@'localhost';   // Atribuir privilégios a determinado usuário
 	FLUSH PRIVILEGES;   // Resetar privilégios
-
+-- Gerar schema visual/gráfico do banco de dados(Diagrama de atividades)
+	WorkBench: Reverse Enginner Database
 -- Dump
 	Exportar:
 		Workbench: Server > Data Export > Setar atributos (Exportar apenas estrutura, datas, e etc...)
