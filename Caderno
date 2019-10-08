@@ -210,7 +210,7 @@ Para o que serve?
 	ORDER BY	// Ordena por
 	DESC|ASC	// Decrescente
 	BETWEEN		// Entre
-	IN		// Dentro dos paramêtros especificados
+	IN		// Dentro dos paramêtros especificados. Exemplo: SELECT * FROM ... WHERE SABOR IN ('MANGA','LARANJA');
 	LIKE|NOT LIKE	// Parecido com
 	DISTINCT	// Distinguir registros que não repetem
 	NOT 		// Nega o que estiver a frente
