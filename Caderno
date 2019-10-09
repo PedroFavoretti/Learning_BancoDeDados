@@ -234,12 +234,10 @@ Para o que serve?
 -- Estruturas Condicionais
 	CASE: Se determinada condiçao, faz uma coisa, se outra, faz outra coisa.{
 	CASE
-	    WHEN <condicao1> THEN <valor1>
-	    WHEN <condicao2> THEN <valor2>
-	    (...)
-	    WHEN <condicaoN> THEN <valorN>
-	    ELSE <condicaoElse>
-	END
+		WHEN PRECO_DE_LISTA >= 12 THEN 'CARO'
+		WHEN PRECO_DE_LISTA BETWEEN 7 AND 12 THEN 'PRODUTO EM CONTA'
+		ELSE 'PRODUTO BARATO'
+	END AS 'STATUS PRECO'
 	}
 
 -- Instalação
