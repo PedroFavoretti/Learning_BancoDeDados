@@ -219,8 +219,7 @@ Para o que serve?
 	LIKE|NOT LIKE	// Parecido com
 	DISTINCT	// Distinguir registros que não repetem
 	NOT 		// Nega o que estiver a frente
-	GROUP BY	// Agrupado por (Só é utilizado em conjunto de funções de agregação(Não é possível usar WHERE, usa-se o
-	HAVING))
+	GROUP BY	// Agrupado por
 	
 -- WILDCARDS
 	_	// Exige que tenha algo
