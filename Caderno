@@ -204,6 +204,7 @@ Para o que serve?
 	FIRST	
 	UNSIGNED (Sem acentuaçoes)
 	IF NOT EXISTS || IF EXISTS	// Usado como condicional, exemplo: CREATE TABLE IF NOT EXISTS pessoa(...);
+	HAVING		// Que contenha (usado na resposta de um select com base em seu agrupamento)
 	
 -- OPERADORES RELACIONAIS
 	LIMIT		// Limitar quantas linhas serão afetadas. {
@@ -218,7 +219,7 @@ Para o que serve?
 	LIKE|NOT LIKE	// Parecido com
 	DISTINCT	// Distinguir registros que não repetem
 	NOT 		// Nega o que estiver a frente
-	GROUP BY	// Agrupado por
+	GROUP BY	// Agrupado por (Não é possível usa WHERE, usa-se o HAVING)
 	
 -- WILDCARDS
 	_	// Exige que tenha algo
