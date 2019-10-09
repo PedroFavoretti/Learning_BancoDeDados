@@ -230,7 +230,18 @@ Para o que serve?
 	MAX()|MIN()	// Exibir maior (SELECT MAX(carga) FROM...)
 	SUM()		// Soma
 	AVG()		// Média 
-	
+
+-- Estruturas Condicionais
+	CASE: Se determinada condiçao, faz uma coisa, se outra, faz outra coisa.{
+	CASE
+	    WHEN <condicao1> THEN <valor1>
+	    WHEN <condicao2> THEN <valor2>
+	    (...)
+	    WHEN <condicaoN> THEN <valorN>
+	    ELSE <condicaoElse>
+	END
+	}
+
 -- Instalação
 	MySql > sudo apt install mysql-server mysql-client && sudo mysql_secure_installation
 	WorkBench > sudo apt install mysql-workbench
