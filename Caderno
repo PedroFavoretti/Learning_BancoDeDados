@@ -178,6 +178,7 @@ Para o que serve?
 	UNSIGNED (Sem acentuaçoes)
 	IF NOT EXISTS || IF EXISTS	// Usado como condicional, exemplo: CREATE TABLE IF NOT EXISTS pessoa(...);
 	HAVING		// Que contenha (usado na resposta de um select com base em seu agrupamento)
+	IS NULL		// Que é NULLO
 	
 -- OPERADORES RELACIONAIS
 	LIMIT		// Limitar quantas linhas serão afetadas. {
