@@ -194,6 +194,8 @@ Para o que serve?
 	DISTINCT	// Distinguir registros que não repetem
 	NOT 		// Nega o que estiver a frente
 	GROUP BY	// Agrupado por
+	UNION 		// Juntar duas consultas usando o DISTINCT
+	UNION ALL	// Juntar duas consultas sem usar o DISTINCT
 	
 -- WILDCARDS
 	_	// Exige que tenha algo
